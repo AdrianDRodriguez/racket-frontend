@@ -1,7 +1,8 @@
-export function PhotosIndex() {
+export function RacketsIndex({ rackets }) {
   return (
     <div>
-      <h1>All photos</h1>
+      <h1>All photos ({ rackets.length } total)</h1>
+
     </div>
   );
 }
