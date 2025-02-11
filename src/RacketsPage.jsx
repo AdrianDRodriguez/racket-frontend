@@ -1,7 +1,9 @@
+import { RacketsIndex } from "./RacketsIndex";
+
 export function RacketsPage() {
-  return (
+return (
     <main>
-      <h1>Welcome to React!</h1>
+      <RacketsIndex />
     </main>
   );
 }
