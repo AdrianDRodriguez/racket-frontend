@@ -1,15 +1,31 @@
 import { RacketsIndex } from "./RacketsIndex";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { RacketsNew } from "./RacketsNew";
 
 export function RacketsPage() {
-  const rackets = [ 
-    {id: 1, head_size: 100, price: 260, brand: "yonex"},
-    {id: 2, head_size: 107, price: 220, brand: "prince"},
-    {id: 3, head_size: 93, price: 250, brand: "head"},
-  ];
+  const [rackets, setRackets] = useState([])
+    
+    const handleIndex = () => {
+      console.log("handleIndex");
+      axios.get("/rackets.jason").then((response) =>{
+        console.log(response.data);
+        setRackets(response.data);
+      });
+    };
+
+    // const handleCreate = () => {
+    //   console.log("handleCreate";)
+    // };
+
+    useEffect(handleIndex, []);
+
+
   
   return (
     <main>
       <RacketsIndex rackets={rackets} />
+      <RacketsNew />
     </main>
   );
 }
